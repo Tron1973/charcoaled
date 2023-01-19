@@ -1,0 +1,404 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Lexend", Arial, Helvetica, sans-serif;
+  }
+  
+  p,
+  a {
+    font-family: "Lexend", Arial, Helvetica, sans-serif;
+  }
+
+  em {
+    font-size: 1.6rem;
+  }
+  
+  /* Generic styles */
+  html {
+    background-color: #232023;
+    scroll-behavior: smooth;
+  }
+  
+  a {
+    transition: all 0.3s;
+  }
+  
+  a:hover {
+    opacity: 0.6;
+  }
+  
+  .button {
+    display: inline-block;
+    width: 12rem;
+    height: 4rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #2d37a8;
+    color: #ffffff;
+    border-radius: 0.25rem;
+    text-align: center;
+    text-decoration: none;
+    padding: 1.3rem;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /*--- ============================================ --->
+  <!---                  NAVIGATION                  --->
+  <!--- ============================================ --*/
+  nav {
+    background: transparent;
+    margin: 0;
+    font-family: "Lexend", Arial, Helvetica, sans-serif;
+    width: 100vw;
+    animation: bugfix infinite 1s;
+    -webkit-animation: bugfix infinite 1s;
+  }
+  @keyframes bugfix {
+    from {
+      padding: 0;
+    }
+    to {
+      padding: 0;
+    }
+  }
+  @-webkit-keyframes bugfix {
+    from {
+      padding: 0;
+    }
+    to {
+      padding: 0;
+    }
+  }
+  #overlay-button {
+    position: absolute;
+    right: 3rem;
+    top: 3rem;
+    padding: 26px 11px;
+    z-index: 5;
+    cursor: pointer;
+    user-select: none;
+  }
+  #overlay-button span {
+    height: 4px;
+    width: 35px;
+    border-radius: 2px;
+    background-color: #ffffff;
+    position: relative;
+    display: block;
+    transition: all 0.2s ease-in-out;
+  }
+  #overlay-button span:before {
+    top: -10px;
+    visibility: visible;
+  }
+  #overlay-button span:after {
+    top: 10px;
+  }
+  #overlay-button span:before,
+  #overlay-button span:after {
+    height: 4px;
+    width: 35px;
+    border-radius: 2px;
+    background-color: #ffffff;
+    position: absolute;
+    content: "";
+    transition: all 0.2s ease-in-out;
+  }
+  #overlay-button:hover span,
+  #overlay-button:hover span:before,
+  #overlay-button:hover span:after {
+    background: #ffffff;
+  }
+  input[type="checkbox"] {
+    display: none;
+  }
+  input[type="checkbox"]:checked ~ #overlay {
+    visibility: visible;
+  }
+  input[type="checkbox"]:checked ~ #overlay-button:hover span,
+  input[type="checkbox"]:checked ~ #overlay-button span {
+    background: transparent;
+  }
+  input[type="checkbox"]:checked ~ #overlay-button span:before {
+    transform: rotate(45deg) translate(7px, 7px);
+    opacity: 1;
+  }
+  input[type="checkbox"]:checked ~ #overlay-button span:after {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+  #overlay {
+    height: 100vh;
+    width: 100vw;
+    background: goldenrod;
+    opacity: 0.98;
+    z-index: 2;
+    visibility: hidden;
+    position: absolute;
+  }
+  #overlay.active {
+    visibility: visible;
+  }
+  #overlay ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: left;
+    height: 100vh;
+    padding-left: 0;
+    list-style-type: none;
+  }
+  #overlay ul li {
+    padding: 1rem;
+  }
+  #overlay ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  #overlay ul li a:hover {
+    color: #232023;
+  }
+  
+  /* Styles for the hero image */
+  
+  .invisible {
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: top;
+    background-color: grey;
+    background-image: url("/images/glyphs.jpg"),
+      linear-gradient(white, #232023, #666666), linear-gradient(#232032, #ffffff);
+    background-blend-mode: difference, overlay;
+    filter: drop-shadow(0.25rem 0.25rem 0.5rem #232023);
+    animation-duration: 4s;
+    animation-name: background-color-animation;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+  
+    /* grid styles */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    align-items: center;
+    height: 100vh;
+  }
+  
+  @keyframes background-color-animation {
+    from {
+      background-color: white;
+    }
+  
+    to {
+      background-color: #232023;
+    }
+  }
+  
+  .invisible > * {
+    color: white;
+    text-align: center;
+    text-overflow: inherit;
+  }
+  
+  .invisible h1 {
+    font-size: 5rem;
+    padding: 1rem;
+    text-align: center;
+    height: 100%;
+    text-shadow: 0.5rem 0.5rem 0.5rem #232023;
+  }
+  
+  .invisible h3 {
+    font-size: 3rem;
+    padding: 1rem;
+    text-shadow: 0.5rem 0.5rem 0.5rem #232023;
+  }
+  
+  .invisible .button {
+    margin-top: 3rem;
+    font-size: 1.3rem;
+    background-color: #72bcd4;
+    color: #ffffff;
+    filter: drop-shadow(0.25rem 0.25rem 0.5rem #232023);
+  }
+  
+  /* albums styles */
+  .history {
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .history > ul > li {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-gap: 0rem;
+  }
+  
+  .history ul figure {
+    text-align: center;
+  }
+  
+  .history > ul > .two {
+    background-color: #ffffff;
+    color: #232023;
+  }
+  
+  .history > ul > .two {
+    background-color: #ffffff;
+    height: 100%;
+    width: 100vw;
+  }
+  
+  .history > ul > .three {
+    background-color: #232023;
+    height: 100%;
+    width: 100vw;
+  }
+  
+  .history > ul > li > p {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    padding: 1rem 0.75rem;
+    color: #232023;
+    text-align: center;
+  }
+  
+  .history > ul > li > .container {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    max-width: 96%;
+    text-align: center;
+  }
+  
+  .history > ul > li > .container > .info {
+    flex: 1;
+    background-color: #ffffff;
+    margin: 4rem;
+  }
+  
+  .history > ul > li > .container > .info > h3 {
+    font-size: 3rem;
+    color: #232023;
+    margin-top: 2rem;
+    padding: 1rem;
+  }
+  
+  .history > ul > li > .container > .info > h5 {
+    font-size: 3rem;
+    color: #232023;
+    padding: 1rem;
+  }
+  
+  .history > ul > li > .container > .info > h6 {
+    font-size: 1.8rem;
+    color: #232023;
+    padding: 1rem;
+  }
+  
+  .history > ul > li > .container > .info > p {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    padding: 2rem 0.75rem;
+    color: #232023;
+    text-align: center;
+  }
+  
+  .history > ul > li > .container > .info > hr {
+    width: 90%;
+    height: 0.25rem;
+    margin: 2rem auto;
+    background-color: #232023;
+    border: 0 none;
+  }
+  
+  .history > ul > li > a {
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+  }
+  
+  .history .button {
+    margin: 1rem 0rem 6rem 0;
+    background-color: #72bcd4;
+    color: #ffffff;
+    filter: drop-shadow(0.25rem 0.25rem 0.5rem #232023);
+  }
+
+  .invisible-track {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .player {
+    width: 24rem;
+    height: auto;
+    filter: drop-shadow(0.5rem 0.5rem 1rem #232023);
+    margin: 4rem;
+  }
+  .player .title {
+    background: #72bcd4;
+    color: #fff;
+    font-size: 1.3rem;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .player .image {
+    width: 100%;
+    height: 30rem;
+  }
+  
+  .player .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+  
+  .player audio {
+    width: 100%;
+  }
+  
+
+  
+  /*-- -------------------------- -->
+  <---           FOOTER           -->
+  <--- -------------------------- -*/
+  #footer {
+    background-color: #232023;
+    min-height: 20vh;
+    width: 100%;
+    margin: 4rem auto;
+  }
+  
+  #footer p {
+    color: #666666;
+    text-align: center;
+    margin: auto;
+    padding: 2rem;
+    font-size: 1.4rem;
+  }
+  
+  #footer a {
+    color: #ffffff;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    text-decoration: none;
+    padding: 1rem;
+  }
+  

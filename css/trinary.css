@@ -1,0 +1,400 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lexend", Arial, Helvetica, sans-serif;
+}
+
+p,
+a {
+  font-family: "Lexend", Arial, Helvetica, sans-serif;
+}
+
+/* Generic styles */
+html {
+  background-color: #232023;
+  scroll-behavior: smooth;
+}
+
+a {
+  transition: all 0.3s;
+}
+
+a:hover {
+  opacity: 0.6;
+}
+
+.button {
+  display: inline-block;
+  width: 12rem;
+  height: 4rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background-color: #900d09;
+  color: #ffffff;
+  border-radius: 0.25rem;
+  text-align: center;
+  text-decoration: none;
+  padding: 1.3rem;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+}
+
+/*--- ============================================ --->
+<!---                  NAVIGATION                  --->
+<!--- ============================================ --*/
+nav {
+  background: transparent;
+  margin: 0;
+  font-family: "Lexend", Arial, Helvetica, sans-serif;
+  width: 100vw;
+  animation: bugfix infinite 1s;
+  -webkit-animation: bugfix infinite 1s;
+}
+@keyframes bugfix {
+  from {
+    padding: 0;
+  }
+  to {
+    padding: 0;
+  }
+}
+@-webkit-keyframes bugfix {
+  from {
+    padding: 0;
+  }
+  to {
+    padding: 0;
+  }
+}
+#overlay-button {
+  position: absolute;
+  right: 3rem;
+  top: 3rem;
+  padding: 26px 11px;
+  z-index: 5;
+  cursor: pointer;
+  user-select: none;
+}
+#overlay-button span {
+  height: 4px;
+  width: 35px;
+  border-radius: 2px;
+  background-color: #ffffff;
+  position: relative;
+  display: block;
+  transition: all 0.2s ease-in-out;
+}
+#overlay-button span:before {
+  top: -10px;
+  visibility: visible;
+}
+#overlay-button span:after {
+  top: 10px;
+}
+#overlay-button span:before,
+#overlay-button span:after {
+  height: 4px;
+  width: 35px;
+  border-radius: 2px;
+  background-color: #ffffff;
+  position: absolute;
+  content: "";
+  transition: all 0.2s ease-in-out;
+}
+#overlay-button:hover span,
+#overlay-button:hover span:before,
+#overlay-button:hover span:after {
+  background: #ffffff;
+}
+input[type="checkbox"] {
+  display: none;
+}
+input[type="checkbox"]:checked ~ #overlay {
+  visibility: visible;
+}
+input[type="checkbox"]:checked ~ #overlay-button:hover span,
+input[type="checkbox"]:checked ~ #overlay-button span {
+  background: transparent;
+}
+input[type="checkbox"]:checked ~ #overlay-button span:before {
+  transform: rotate(45deg) translate(7px, 7px);
+  opacity: 1;
+}
+input[type="checkbox"]:checked ~ #overlay-button span:after {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+#overlay {
+  height: 100vh;
+  width: 100vw;
+  background: goldenrod;
+  opacity: 0.98;
+  z-index: 2;
+  visibility: hidden;
+  position: absolute;
+}
+#overlay.active {
+  visibility: visible;
+}
+#overlay ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: left;
+  height: 100vh;
+  padding-left: 0;
+  list-style-type: none;
+}
+#overlay ul li {
+  padding: 1rem;
+}
+#overlay ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 3rem;
+  font-weight: bold;
+}
+#overlay ul li a:hover {
+  color: #232023;
+}
+
+/* Styles for the hero image */
+
+.hero-four {
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: left;
+  background-color: #ffffff;
+  background-image: url("/images/trinaryHeroOne.jpg"),
+    linear-gradient(#ffffff, #d0312d, #900d09),
+    linear-gradient(-90deg, #d0312d, #ffffff);
+  background-blend-mode: difference, overlay;
+  filter: drop-shadow(0.25rem 0.25rem 0.5rem #232023);
+  animation-duration: 3s;
+  animation-name: background-color-animation;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+
+  /* grid styles */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  align-items: center;
+  height: 100vh;
+}
+
+@keyframes background-color-animation {
+  from {
+    background-color: #ffffff;
+  }
+
+  to {
+    background-color: #d0312d;
+  }
+}
+
+.hero-four > * {
+  color: white;
+  text-align: center;
+  text-overflow: inherit;
+}
+
+.hero-four h1 {
+  font-size: 6rem;
+  padding: 1rem;
+  text-align: center;
+  height: 100%;
+  text-shadow: 0.5rem 0.5rem 0.5rem #232023;
+}
+
+.hero-four h2 {
+  font-size: 3rem;
+  padding: 1rem;
+  text-shadow: 0.5rem 0.5rem 0.5rem #232023;
+}
+
+.hero-four h3 {
+  font-size: 2rem;
+  padding: 1rem;
+  text-shadow: 0.5rem 0.5rem 0.5rem #232023;
+}
+
+.hero-four .button {
+  margin-top: 3rem;
+  font-size: 1.3rem;
+  filter: drop-shadow(0.25rem 0.25rem 0.5rem #232023);
+}
+
+/* albums styles */
+.albums-four {
+  width: 100%;
+  height: 100vh;
+}
+
+.albums-four > ul > li {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-gap: 0rem;
+}
+
+.albums-four ul figure {
+  text-align: center;
+}
+
+.albums-four > ul > .three {
+  background-color: #ffffff;
+  height: 100%;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.albums-four ul li figure img {
+  height: auto;
+  width: 90%;
+  padding: 4rem;
+  margin-bottom: 2rem;
+}
+
+.albums-four > ul > li > p {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  padding: 1rem 0.75rem;
+  color: #232023;
+  text-align: center;
+}
+
+.albums-four > ul > li > .container {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  max-width: 96%;
+  text-align: center;
+}
+
+.albums-four > ul > li > .container > .info {
+  flex: 1;
+  margin: 4rem;
+  border-bottom-left-radius: 3rem;
+  border-bottom-right-radius: 3rem;
+}
+
+.albums-four > ul > li > .container > .info > h3 {
+  font-size: 3rem;
+  color: #232023;
+  margin-top: 4rem;
+}
+
+.albums-four > ul > li > .container > .info > h5 {
+  font-size: 2.25rem;
+  color: #232023;
+  padding-bottom: 1rem;
+}
+
+.albums-four > ul > li > .container > .info > p {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  padding: 1rem 0.75rem;
+  color: #232023;
+  text-align: center;
+}
+
+.albums-four > ul > li > .container > .info > p > b {
+  font-size: 1.9rem;
+  text-transform: uppercase;
+}
+
+.albums-four hr {
+  width: 90%;
+  height: 0.25rem;
+  margin: 1rem auto;
+  background-color: #232023;
+  border: 0 none;
+}
+
+.albums-four > ul > li > a {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+}
+
+.albums-four .button {
+  margin: 1rem 0rem 10rem 0;
+  filter: drop-shadow(0.25rem 0.25rem 0.5rem #232023);
+}
+
+/* PLAYER STYLES */
+
+.tracks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-gap: 4rem;
+  justify-items: center;
+  margin: 4rem auto;
+}
+
+.player {
+  width: 24rem;
+  height: auto;
+  filter: drop-shadow(0.5rem 0.5rem 1rem #232023);
+}
+
+.player .title {
+  background: #900d09;
+  color: #fff;
+  font-size: 1.3rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.player .image {
+  width: 100%;
+  height: 30rem;
+}
+
+.player .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.player audio {
+  width: 100%;
+}
+
+/*-- -------------------------- -->
+<---           FOOTER           -->
+<--- -------------------------- -*/
+#footer {
+  background-color: #232023;
+  min-height: 20vh;
+  width: 100%;
+  margin: 4rem auto;
+}
+
+#footer p {
+  color: #666666;
+  text-align: center;
+  margin: auto;
+  padding: 2rem;
+  font-size: 1.4rem;
+}
+
+#footer a {
+  color: #ffffff;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  text-decoration: none;
+  padding: 1rem;
+}
